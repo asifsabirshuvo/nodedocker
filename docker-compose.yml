@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    container_name: node-docker-sample
+    restart: always
+    build: .        #search represents for any Dockerfile in this dirr
+    ports: 
+      - '9999:3000'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo              #it will search from dockerhub as not available on local
+    ports:
+      - '27017:270:17'
