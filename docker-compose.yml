@@ -12,4 +12,4 @@ services:
     container_name: mongo
     image: mongo              #it will search from dockerhub as not available on local
     ports:
-      - '27017:270:17'
+      - '27017:27017'
