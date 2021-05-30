@@ -12,3 +12,23 @@ docker exec -it e452 bash
 docker-compose up  
 docker-compose up -d
 docker-compose down
+
+
+**DOCKER FILE (UNOPTIMIZED)**
+
+FROM node:9-slim
+WORKDIR /app 
+COPY package.json /app
+RUN npm install
+COPY . /app
+CMD ["npm","start"]% 
+
+
+**DOCKER FILE (CACHED)**
+
+FROM node:9-slim
+WORKDIR /app 
+COPY package.json package-lock.json /app/
+RUN npm install
+COPY . /app
+CMD ["npm","start"]
